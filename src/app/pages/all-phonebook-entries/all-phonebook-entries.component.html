@@ -1,0 +1,19 @@
+<p>all-phonebook-entries works!</p>
+<a routerLink="/phonebook-entry">Add new phonebook entry</a>
+
+
+
+
+<ul class="heroes">
+    <li *ngFor="let phones of phone"[class.selected]="phones === selected_contact"
+    (click)="onSelect(phones)" >
+        {{phones.name}}
+        {{phones.phone}}
+        {{phones.email}}
+    </li>
+</ul>
+
+
+
+
+
