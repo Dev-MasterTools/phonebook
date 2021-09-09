@@ -1,16 +1,52 @@
-<div class="container">
-	<a routerLink="/">Back Home</a>
-	<!-- Default form login -->
-	<form class="text-center border border-light p-5" >
-		<p class="h4 mb-4">Selected Contact</p>
 
-        <input  placeholder={{to_display.id}}>
-        <input  placeholder={{to_display.name}}>
-        <input  placeholder={{to_display.phone}}>
-        <input  placeholder={{to_display.email}}>
-	
-		<!-- Sign in button -->
-		<button mdbBtn color="info" block="true" class="my-4" type="submit" >Submit</button>
-	</form>
-  <!-- Default form login -->
-</div>
+    <div class="col-12"><button routerLink="/" type="button" class="btn btn-success">Go Back</button></div>
+
+<!--Grid row-->
+<div class="row">
+
+	<!--Grid column-->
+	<div class="col-md-6">
+  
+	  <mdb-card class="testimonial-card">
+		<!--Bacground color-->
+		<p style="text-align-last: center;" class="h4 mb-4">Selected Contact</p>
+		<div class="card-up indigo lighten-1">
+		</div>
+  
+		<!--Avatar-->
+		<div class="avatar mx-auto">
+		  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIlaBbaTyHPeGtZlJxlsAMaTupmN7sEPfscg&usqp=CAU" class="rounded-circle">
+		</div>
+  
+		<mdb-card-body>
+		  <!--Name-->
+		  <mdb-card-title>
+		
+			  <div>
+				<i class='fas fa-address-book fa-2x'> -  {{to_display.name}}</i><br/>				
+			</div>
+			  <div>
+				<i class='fas fa-phone-volume fa-2x'> - {{to_display.phone}}</i><br/>				
+			</div>
+			<div>
+				<i class='fas fa-at fa-2x'> - {{to_display.email}}</i><br/>				
+			</div>
+		</mdb-card-title>
+
+		</mdb-card-body>
+	  </mdb-card>
+
+	</div>
+
+
+
+
+
+<
+
+
+
+
+
+
+

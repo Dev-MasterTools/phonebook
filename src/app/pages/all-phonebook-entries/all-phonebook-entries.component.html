@@ -1,19 +1,47 @@
-<p>all-phonebook-entries works!</p>
-<a routerLink="/phonebook-entry">Add new phonebook entry</a>
-
-
-
-
-<ul class="heroes">
-    <li *ngFor="let phones of phone"[class.selected]="phones === selected_contact"
-    (click)="onSelect(phones)" >
-        {{phones.name}}
-        {{phones.phone}}
-        {{phones.email}}
-    </li>
-</ul>
 
 
 
 
 
+<div class="row">
+  <hr>
+  <div class="col-12">
+    <div class="col-12"><button routerLink="/phonebook-entry" type="button" class="btn btn-success">Add New Contact</button></div>
+    <div style="text-align-last: center;" class="col-12"><h1>Contact List</h1></div>
+
+  </div>
+
+
+</div>
+
+<div >
+
+</div>
+
+<!--Table-->
+<table class="table table-info table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let phones of phone"[class.selected]="phones === selected_contact"
+      (click)="onSelect(phones)" >
+
+        <td>{{phones.name}}</td>
+        <td>{{phones.phone}}</td>
+        <td> {{phones.email}}</td>
+
+      </tr>
+     
+    </tbody>
+    <!--Table body-->
+  
+  
+  </table>
+  <!--Table-->

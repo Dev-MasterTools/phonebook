@@ -7,11 +7,14 @@ import {PhonebookService} from '../../services/phonebook.service';
   templateUrl: './selected-contact.component.html',
   styleUrls: ['./selected-contact.component.scss']
 })
-export class SelectedContactComponent implements OnInit {
+export class SelectedContactComponent implements OnInit 
+{
+
 
   constructor(private phoneService:PhonebookService) { }
-
   to_display:any;
+
+
 
   ngOnInit(): void 
   {
