@@ -12,6 +12,10 @@ export class PhonebookService
 
 	url = "http://localhost:3000/api/phonebook";
 
+	headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
+
+
+
 	addNewPhonebook(phonebook: any)
 	{
 		this.__http.post(`${this.url}`, phonebook).subscribe((res: any) => {
@@ -37,5 +41,46 @@ export class PhonebookService
 	{
 		return this.set_contact;
 	}
+
+
+	deleteContact(id:any)
+	{
+		return this.set_contact;
+	}
+
+	updateContact(id:any, contact : any)
+	{
+		console.log("Service Works");
+		console.log(contact);
+
+		const body = JSON.stringify
+			({
+				name: contact.title,
+				phone: contact.decsription,
+				email: contact.price,
+		
+
+			});
+
+		//setting up the headers for our reqeus
+
+		this.__http.patch(`${this.url}/${id}`, body, { headers: this.headers }).subscribe(
+			(data) => {
+				console.log(data);
+			},
+			(err: HttpErrorResponse) => {
+				if (err.error instanceof Error) {
+					console.log('Client-side.');
+					console.log(body);
+
+				} else {
+					console.log('Server-side.');
+					console.log(body);
+				}
+			}
+		);
+
+	}
+
 
 }
