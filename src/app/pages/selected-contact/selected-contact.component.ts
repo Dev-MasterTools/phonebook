@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PhonebookService} from '../../services/phonebook.service';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import {Router} from '@angular/router';
 
 
 
@@ -14,11 +15,9 @@ import { FormControl, FormGroup, NgForm } from '@angular/forms';
 export class SelectedContactComponent implements OnInit 
 {
 
-
-  constructor(private __phoneService:PhonebookService) { }
+  constructor(private __phoneService:PhonebookService,private theroot: Router) { }
   to_display:any;
   book_update:any;
-
 
 	phonebookForm = new FormGroup({
     id: new FormControl(''),
@@ -26,8 +25,6 @@ export class SelectedContactComponent implements OnInit
 		phone: new FormControl(''),
 		email: new FormControl(''),
 	})
-
-
 
   ngOnInit(): void 
   {
@@ -46,18 +43,11 @@ export class SelectedContactComponent implements OnInit
     console.log(this.to_display);
   }
 
-  submitPhoneBootEntry()
-  {
-
-		//this.__phoneService.addNewPhonebook(this.phonebookForm.value);
-	}
-
-
   deteteContact()
   {
     let id =  this.phonebookForm.controls['id'].value;
     this.__phoneService.deleteContact(id);
-    
+
   }
 
   updateContact()
@@ -71,9 +61,9 @@ export class SelectedContactComponent implements OnInit
       email: this.phonebookForm.controls['email'].value,
     }
      this.__phoneService.updateContact(id,this.book_update)
+
+    this.theroot.navigate(['/']);
   }
-
-
 
 
 }
