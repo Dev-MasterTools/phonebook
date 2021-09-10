@@ -43,28 +43,42 @@ export class PhonebookService
 	}
 
 
-	deleteContact(id:any)
+
+	updateContact(id:string, payload : any)
 	{
-		return this.set_contact;
-	}
 
-	updateContact(id:any, contact : any)
-	{
-		console.log("Service Works");
-		console.log(contact);
+	// 	console.log(payload);
 
-		const body = JSON.stringify
-			({
-				name: contact.title,
-				phone: contact.decsription,
-				email: contact.price,
-		
+	// 	const updatateUrl = `$(this.url)/${id}`;
+	// 	console.log(payload);
+	//  return this.__http.patch(`${updatateUrl}`,payload)
 
-			});
 
 		//setting up the headers for our reqeus
 
-		this.__http.patch(`${this.url}/${id}`, body, { headers: this.headers }).subscribe(
+		this.__http.patch(`${this.url}/${id}`, payload, { headers: this.headers }).subscribe(
+			(data) => {
+				console.log(data);
+			},
+			(err: HttpErrorResponse) => {
+				if (err.error instanceof Error) {
+					console.log('Client-side.');
+					console.log(payload);
+
+				} else {
+					console.log('Server-side.');
+					console.log(payload);
+				}
+			}
+		);
+	}
+
+
+	deleteContact(id:any)
+	{
+		const body = JSON.stringify({_id: id});
+
+		this.__http.delete(`${this.url}/${id}`, { headers: this.headers }).subscribe(
 			(data) => {
 				console.log(data);
 			},

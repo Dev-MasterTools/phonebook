@@ -55,16 +55,14 @@ export class SelectedContactComponent implements OnInit
 
   deteteContact()
   {
-
-    console.log("Contact To Delete");
-    console.log(this.to_display);	
+    let id =  this.phonebookForm.controls['id'].value;
+    this.__phoneService.deleteContact(id);
+    
   }
 
   updateContact()
   {
-
     let id =  this.phonebookForm.controls['id'].value;
-
     this.book_update = 
     {
       
@@ -72,11 +70,7 @@ export class SelectedContactComponent implements OnInit
       phone: this.phonebookForm.controls['phone'].value,
       email: this.phonebookForm.controls['email'].value,
     }
-
-
-     this.__phoneService.updateContact(id,this.book_update);
-
-
+     this.__phoneService.updateContact(id,this.book_update)
   }
 
 
