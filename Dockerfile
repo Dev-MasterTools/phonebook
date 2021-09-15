@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm i -g @angular/cli@12.2.4
+RUN npm i -g @angular/cli@11.2.1
 RUN npm install -g json-server
 
 RUN npm i
