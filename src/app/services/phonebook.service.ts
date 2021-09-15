@@ -10,7 +10,7 @@ export class PhonebookService
 
 	set_contact : any;
 
-	url = "http://localhost:3000/api/phonebook";
+	url = "https://tools-phonebook-api.herokuapp.com/api/phonebook";
 
 	headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
 
